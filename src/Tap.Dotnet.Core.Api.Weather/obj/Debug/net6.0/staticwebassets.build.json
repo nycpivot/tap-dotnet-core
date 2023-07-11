@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "z3BJ2+DP1oNLHWOumMAFK68I1VAvsjPreyyuv90Eyh8=",
+  "Source": "Tap.Dotnet.Core.Api.Weather",
+  "BasePath": "_content/Tap.Dotnet.Core.Api.Weather",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

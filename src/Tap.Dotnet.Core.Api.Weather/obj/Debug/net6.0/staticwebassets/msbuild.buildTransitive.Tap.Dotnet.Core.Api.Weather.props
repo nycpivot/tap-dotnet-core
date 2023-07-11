@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Tap.Dotnet.Core.Api.Weather.props" />
+</Project>
