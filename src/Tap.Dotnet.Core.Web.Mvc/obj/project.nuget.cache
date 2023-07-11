@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "d0eEhzzQT9vpqNN/WszjPB/7t+ekYEglYeU/qWDesHVa5ctR7jIbsMTnk8WaZkxerz3PPo1inOdKVW5K9GBMSw==",
+  "dgSpecHash": "Je7A+Ifcmgzvz5YnAObdgWEix+9uav/6WXUBheBRNqShDAj+bM2LqQcrukWB+w/PalEJJqRoWX8pFBqP/wwxHw==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\tap-dotnet-core\\Tap.Dotnet.Core\\Tap.Dotnet.Core.Web.Mvc\\Tap.Dotnet.Core.Web.Mvc.csproj",
+  "projectFilePath": "C:\\Users\\mjames\\Documents\\tap-dotnet-core\\src\\Tap.Dotnet.Core.Web.Mvc\\Tap.Dotnet.Core.Web.Mvc.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

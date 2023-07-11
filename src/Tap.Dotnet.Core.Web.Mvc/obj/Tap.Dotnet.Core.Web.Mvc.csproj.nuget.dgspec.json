@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\tap-dotnet-core\\Tap.Dotnet.Core\\Tap.Dotnet.Core.Web.Mvc\\Tap.Dotnet.Core.Web.Mvc.csproj": {}
+    "C:\\Users\\mjames\\Documents\\tap-dotnet-core\\src\\Tap.Dotnet.Core.Web.Mvc\\Tap.Dotnet.Core.Web.Mvc.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\tap-dotnet-core\\Tap.Dotnet.Core\\Tap.Dotnet.Core.Web.Mvc\\Tap.Dotnet.Core.Web.Mvc.csproj": {
+    "C:\\Users\\mjames\\Documents\\tap-dotnet-core\\src\\Tap.Dotnet.Core.Web.Mvc\\Tap.Dotnet.Core.Web.Mvc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\tap-dotnet-core\\Tap.Dotnet.Core\\Tap.Dotnet.Core.Web.Mvc\\Tap.Dotnet.Core.Web.Mvc.csproj",
+        "projectUniqueName": "C:\\Users\\mjames\\Documents\\tap-dotnet-core\\src\\Tap.Dotnet.Core.Web.Mvc\\Tap.Dotnet.Core.Web.Mvc.csproj",
         "projectName": "Tap.Dotnet.Core.Web.Mvc",
-        "projectPath": "C:\\Projects\\tap-dotnet-core\\Tap.Dotnet.Core\\Tap.Dotnet.Core.Web.Mvc\\Tap.Dotnet.Core.Web.Mvc.csproj",
+        "projectPath": "C:\\Users\\mjames\\Documents\\tap-dotnet-core\\src\\Tap.Dotnet.Core.Web.Mvc\\Tap.Dotnet.Core.Web.Mvc.csproj",
         "packagesPath": "C:\\Users\\mjames\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\tap-dotnet-core\\Tap.Dotnet.Core\\Tap.Dotnet.Core.Web.Mvc\\obj\\",
+        "outputPath": "C:\\Users\\mjames\\Documents\\tap-dotnet-core\\src\\Tap.Dotnet.Core.Web.Mvc\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mjames\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -58,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }
