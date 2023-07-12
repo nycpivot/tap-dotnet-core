@@ -1,11 +1,23 @@
+using System.Net;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+//builder.Services.AddHttpClient("Name").ConfigurePrimaryHttpMessageHandler(() => {
+//var handler = new HttpClientHandler
+//{
+//    AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate,
+//    ServerCertificateCustomValidationCallback = (sender, certificate, chain, errors) =>
+//    {
+//        return true;
+//    }
+//}
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+    // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
