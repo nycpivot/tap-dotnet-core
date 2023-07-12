@@ -29,7 +29,7 @@ namespace Tap.Dotnet.Core.Web.Mvc.Controllers
 
                 using (var httpClient = new HttpClient(handler))
                 {
-                    httpClient.BaseAddress = new Uri("https://tap-dotnet-core.default.run-eks.tap.nycpivot.com");
+                    httpClient.BaseAddress = new Uri("https://tap-dotnet-core-api-weather.default.run-eks.tap.nycpivot.com/");
 
                     //var response = await httpClient.GetAsync("weatherforecast");
                     //response.EnsureSuccessStatusCode();
