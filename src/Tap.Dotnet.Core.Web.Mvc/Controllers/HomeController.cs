@@ -20,6 +20,9 @@ namespace Tap.Dotnet.Core.Web.Mvc.Controllers
 
         public IActionResult Index()
         {
+            var weatherApi = Environment.GetEnvironmentVariable("WEATHER_API") 
+                ?? "https://tap-dotnet-core-api-weather.default.run-eks.tap.nycpivot.com";
+
             using (var handler = new HttpClientHandler())
             {
                 handler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
@@ -29,7 +32,7 @@ namespace Tap.Dotnet.Core.Web.Mvc.Controllers
 
                 using (var httpClient = new HttpClient(handler))
                 {
-                    httpClient.BaseAddress = new Uri("https://tap-dotnet-core-api-weather.default.run-eks.tap.nycpivot.com/");
+                    httpClient.BaseAddress = new Uri(weatherApi);
 
                     //var response = await httpClient.GetAsync("weatherforecast");
                     //response.EnsureSuccessStatusCode();
