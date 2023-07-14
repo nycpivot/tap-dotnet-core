@@ -72,9 +72,23 @@ namespace Tap.Dotnet.Core.Web.Mvc.Controllers
         {
             try
             {
-                ViewBag.Variables = Environment.GetEnvironmentVariables();
+                var variables = new List<EnvironmentVariable>();
+
+                var environment = Environment.GetEnvironmentVariables();
+                foreach (DictionaryEntry variable in environment)
+                {
+                    var ev = new EnvironmentVariable()
+                    {
+                        Key = variable.Key.ToString() ?? String.Empty,
+                        Value = variable.Value?.ToString() ?? String.Empty
+                    };
+
+                    variables.Add(ev);
+                }
+
+                ViewBag.Variables = variables.OrderBy(e => e.Key).ToList();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 ModelState.AddModelError("Export", ex.StackTrace ?? ex.Message);
             }
