@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Collections;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Security;
@@ -57,6 +58,13 @@ namespace Tap.Dotnet.Core.Web.Mvc.Controllers
                     }
                 }
             }
+
+            return View();
+        }
+
+        public IActionResult Export()
+        {
+            ViewBag.Variables = Environment.GetEnvironmentVariables();
 
             return View();
         }
