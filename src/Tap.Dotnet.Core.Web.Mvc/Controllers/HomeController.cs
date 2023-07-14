@@ -67,14 +67,14 @@ namespace Tap.Dotnet.Core.Web.Mvc.Controllers
 
         public IActionResult Export()
         {
-            try
-            {
-                ViewBag.Variables = Environment.GetEnvironmentVariables();
-            }
-            catch(Exception ex)
-            {
-                ModelState.AddModelError("Export", ex.StackTrace ?? ex.Message);
-            }
+            //try
+            //{
+            //    ViewBag.Variables = Environment.GetEnvironmentVariables();
+            //}
+            //catch(Exception ex)
+            //{
+            //    ModelState.AddModelError("Export", ex.StackTrace ?? ex.Message);
+            //}
 
             return View();
         }
