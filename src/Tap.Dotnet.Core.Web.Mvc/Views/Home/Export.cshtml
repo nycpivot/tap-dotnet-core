@@ -1,16 +1,17 @@
-﻿@using System.Collections
-
-<div class="text-center">
+﻿<div class="text-center">
     <h1 class="display-4">Environment</h1>
 
     <p>@Html.ValidationMessage("Export")</p>
 
     <table>
-        @foreach (DictionaryEntry variable in ViewBag.Variables)
+        @foreach (var variable in ViewBag.Variables)
         {
             <tr>
-                <td>@variable.Key</td>
-                <td>@variable.Value</td>
+                @if(variable.Key == "WEATHER_API")
+                {
+                    <td style="font-weight: bold;">@variable.Key</td>
+                    <td style="font-weight: bold;">@variable.Value</td>
+                }
             </tr>
         }
     </table>
