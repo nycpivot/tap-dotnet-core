@@ -7,7 +7,7 @@
         @foreach (var variable in ViewBag.Variables)
         {
             <tr>
-                @if (variable.Key == "WEATHER_API")
+                @if (variable.Key == "SERVICE_BINDING_ROOT")
                 {
                     <td style="text-align: left; font-weight: bold;">@variable.Key</td>
                     <td style="text-align: left; font-weight: bold;">@variable.Value</td>
@@ -20,4 +20,7 @@
             </tr>
         }
     </table>
+
+    <p>@ViewBag.SecretPath</p>
+    <p>@ViewBag.WeatherApi</p>
 </div>
