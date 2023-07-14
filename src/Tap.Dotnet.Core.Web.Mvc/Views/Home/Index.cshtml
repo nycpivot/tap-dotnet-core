@@ -4,7 +4,40 @@
 
 <p>@Html.ValidationMessage("Index")</p>
 
-<div class="text-center">
+<div class="text-center"">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div style="height: 550px;">
+
+</div>
+
+<div class="container">
+    <div class="text-center border-top">
+        <h6 class="display-6">Weather Forecast</h6>
+        <table style="width:100%;">
+            <tr>
+                <td>@ViewBag.Forecast1.Date.DayOfWeek</td>
+                <td>@ViewBag.Forecast2.Date.DayOfWeek</td>
+                <td>@ViewBag.Forecast3.Date.DayOfWeek</td>
+                <td>@ViewBag.Forecast4.Date.DayOfWeek</td>
+                <td>@ViewBag.Forecast5.Date.DayOfWeek</td>
+            </tr>
+            <tr>
+                <td>@ViewBag.Forecast1.TemperatureF℉</td>
+                <td>@ViewBag.Forecast2.TemperatureF℉</td>
+                <td>@ViewBag.Forecast3.TemperatureF℉</td>
+                <td>@ViewBag.Forecast4.TemperatureF℉</td>
+                <td>@ViewBag.Forecast5.TemperatureF℉</td>
+            </tr>
+            <tr>
+                <td>@ViewBag.Forecast1.Summary</td>
+                <td>@ViewBag.Forecast2.Summary</td>
+                <td>@ViewBag.Forecast3.Summary</td>
+                <td>@ViewBag.Forecast4.Summary</td>
+                <td>@ViewBag.Forecast5.Summary</td>
+            </tr>
+        </table>
+    </div>
 </div>

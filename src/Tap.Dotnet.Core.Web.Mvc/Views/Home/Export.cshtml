@@ -1,17 +1,17 @@
 ﻿@using System.Collections
-@{
-    ViewData["Title"] = "Environment";
-}
-<h1>@ViewData["Title"]</h1>
 
-<p>@Html.ValidationMessage("Export")</p>
+<div class="text-center">
+    <h1 class="display-4">Environment</h1>
 
-<table>
-@*    @foreach (DictionaryEntry variable in ViewBag.Variables)
-    {
-        <tr>
-            <td>@variable.Key</td>
-            <td>@variable.Value</td>
-        </tr>
-    }*@
-</table>
+    <p>@Html.ValidationMessage("Export")</p>
+
+    <table>
+    @*    @foreach (DictionaryEntry variable in ViewBag.Variables)
+        {
+            <tr>
+                <td>@variable.Key</td>
+                <td>@variable.Value</td>
+            </tr>
+        }*@
+    </table>
+</div>
