@@ -20,39 +20,46 @@ namespace Tap.Dotnet.Core.Web.Mvc.Controllers
 
         public IActionResult Index()
         {
-            var weatherApi = Environment.GetEnvironmentVariable("WEATHER_API") 
-                ?? "https://tap-dotnet-core-api-weather.default.run-eks.tap.nycpivot.com";
-
-            using (var handler = new HttpClientHandler())
+            try
             {
-                handler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
+                var weatherApi = Environment.GetEnvironmentVariable("WEATHER_API")
+                    ?? "https://tap-dotnet-core-api-weather.default.run-eks.tap.nycpivot.com";
+
+                using (var handler = new HttpClientHandler())
                 {
-                    return true;
-                };
-
-                using (var httpClient = new HttpClient(handler))
-                {
-                    httpClient.BaseAddress = new Uri(weatherApi);
-
-                    //var response = await httpClient.GetAsync("weatherforecast");
-                    //response.EnsureSuccessStatusCode();
-
-                    var response = httpClient.GetAsync("weatherforecast").Result;
-                    if (response.StatusCode == HttpStatusCode.OK)
+                    handler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
                     {
-                        var content = response.Content.ReadAsStringAsync().Result;
-                        var forecasts = JsonConvert.DeserializeObject<List<WeatherForecast>>(content);
+                        return true;
+                    };
 
-                        if (forecasts != null && forecasts.Count == 5)
+                    using (var httpClient = new HttpClient(handler))
+                    {
+                        httpClient.BaseAddress = new Uri(weatherApi);
+
+                        //var response = await httpClient.GetAsync("weatherforecast");
+                        //response.EnsureSuccessStatusCode();
+
+                        var response = httpClient.GetAsync("weatherforecast").Result;
+                        if (response.StatusCode == HttpStatusCode.OK)
                         {
-                            ViewBag.Forecast1 = forecasts[0];
-                            ViewBag.Forecast2 = forecasts[1];
-                            ViewBag.Forecast3 = forecasts[2];
-                            ViewBag.Forecast4 = forecasts[3];
-                            ViewBag.Forecast5 = forecasts[4];
+                            var content = response.Content.ReadAsStringAsync().Result;
+                            var forecasts = JsonConvert.DeserializeObject<List<WeatherForecast>>(content);
+
+                            if (forecasts != null && forecasts.Count == 5)
+                            {
+                                ViewBag.Forecast1 = forecasts[0];
+                                ViewBag.Forecast2 = forecasts[1];
+                                ViewBag.Forecast3 = forecasts[2];
+                                ViewBag.Forecast4 = forecasts[3];
+                                ViewBag.Forecast5 = forecasts[4];
+                            }
                         }
                     }
                 }
+            }
+            catch(Exception ex)
+            {
+                ModelState.AddModelError("Index", ex.StackTrace ?? ex.Message);
             }
 
             return View();
@@ -60,7 +67,14 @@ namespace Tap.Dotnet.Core.Web.Mvc.Controllers
 
         public IActionResult Export()
         {
-            ViewBag.Variables = Environment.GetEnvironmentVariables();
+            try
+            {
+                ViewBag.Variables = Environment.GetEnvironmentVariables();
+            }
+            catch(Exception ex)
+            {
+                ModelState.AddModelError("Export", ex.StackTrace ?? ex.Message);
+            }
 
             return View();
         }
