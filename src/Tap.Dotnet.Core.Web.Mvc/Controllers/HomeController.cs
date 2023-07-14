@@ -58,6 +58,13 @@ namespace Tap.Dotnet.Core.Web.Mvc.Controllers
             return View();
         }
 
+        public IActionResult Export()
+        {
+            ViewBag.Variables = Environment.GetEnvironmentVariables();
+
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
