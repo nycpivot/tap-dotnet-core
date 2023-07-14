@@ -82,11 +82,6 @@ namespace Tap.Dotnet.Core.Web.Mvc.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
         //private static bool ServerCertificateCustomValidation(HttpRequestMessage requestMessage, X509Certificate2? certificate, X509Chain? chain, SslPolicyErrors sslErrors)
         //{
         //    // It is possible to inspect the certificate provided by the server.
