@@ -4,6 +4,8 @@
 }
 <h1>@ViewData["Title"]</h1>
 
+<p>@Html.ValidationMessage("Export")</p>
+
 <table>
     @foreach (DictionaryEntry variable in ViewBag.Variables)
     {
