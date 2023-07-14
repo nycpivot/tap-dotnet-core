@@ -20,8 +20,11 @@ namespace Tap.Dotnet.Core.Web.Mvc.Controllers
 
         public IActionResult Index()
         {
-            var weatherApi = Environment.GetEnvironmentVariable("WEATHER_API") 
-                ?? "https://tap-dotnet-core-api-weather.default.run-eks.tap.nycpivot.com";
+            var serviceBindings = Environment.GetEnvironmentVariable("SERVICE_BINDING_ROOT");
+            var weatherApi = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "weather-api", "host"));
+            //?? "https://tap-dotnet-core-api-weather.default.run-eks.tap.nycpivot.com";
+
+            weatherApi = weatherApi.Trim();
 
             using (var handler = new HttpClientHandler())
             {
