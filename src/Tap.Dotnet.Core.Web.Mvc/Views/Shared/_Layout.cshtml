@@ -23,7 +23,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Export">Environment</a>
                         </li>
                     </ul>
                 </div>
@@ -38,32 +38,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            <h4>Weather Forecast</h4>
-            <table style="width:100%">
-                <tr>
-                    <td>@ViewBag.Forecast1.Date.DayOfWeek</td>
-                    <td>@ViewBag.Forecast2.Date.DayOfWeek</td>
-                    <td>@ViewBag.Forecast3.Date.DayOfWeek</td>
-                    <td>@ViewBag.Forecast4.Date.DayOfWeek</td>
-                    <td>@ViewBag.Forecast5.Date.DayOfWeek</td>
-                </tr>
-                <tr>
-                    <td>@ViewBag.Forecast1.TemperatureF℉</td>
-                    <td>@ViewBag.Forecast2.TemperatureF℉</td>
-                    <td>@ViewBag.Forecast3.TemperatureF℉</td>
-                    <td>@ViewBag.Forecast4.TemperatureF℉</td>
-                    <td>@ViewBag.Forecast5.TemperatureF℉</td>
-                </tr>
-                <tr>
-                    <td>@ViewBag.Forecast1.Summary</td>
-                    <td>@ViewBag.Forecast2.Summary</td>
-                    <td>@ViewBag.Forecast3.Summary</td>
-                    <td>@ViewBag.Forecast4.Summary</td>
-                    <td>@ViewBag.Forecast5.Summary</td>
-                </tr>
-            </table>
-            <br />
-            &copy; 2023 - Tap.Dotnet.Core.Web.Mvc - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2023 - Tap.Dotnet.Core.Web.Mvc - w/Direct Secret & Claim
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
