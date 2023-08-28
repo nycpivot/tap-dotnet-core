@@ -13,7 +13,7 @@ builder.Services.AddControllersWithViews();
 var wavefrontUrl = "";
 var wavefrontToken = "";
 
-builder.Services.AddSingleton(new WavefrontDirectIngestionClient.Builder(wavefrontUrl, wavefrontToken));
+builder.Services.AddSingleton(new WavefrontDirectIngestionClient.Builder(wavefrontUrl, wavefrontToken).Build());
 
 builder.Services.AddScoped<IWeatherApplication, WeatherApplication>();
 
