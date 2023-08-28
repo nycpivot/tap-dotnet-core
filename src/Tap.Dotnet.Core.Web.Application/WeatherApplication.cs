@@ -8,12 +8,12 @@ namespace Tap.Dotnet.Core.Web.Application
 {
     public class WeatherApplication : IWeatherApplication
     {
-        private readonly string apiUrl;
+        private readonly EnvironmentVariable environmentVariable;
         private readonly WavefrontDirectIngestionClient wfClient;
 
-        public WeatherApplication(string apiUrl, WavefrontDirectIngestionClient wfClient)
+        public WeatherApplication(EnvironmentVariable environmentVariable, WavefrontDirectIngestionClient wfClient)
         {
-            this.apiUrl = apiUrl;
+            this.environmentVariable = environmentVariable;
             this.wfClient = wfClient;
         }
 
@@ -30,7 +30,7 @@ namespace Tap.Dotnet.Core.Web.Application
 
                 using (var httpClient = new HttpClient(handler))
                 {
-                    httpClient.BaseAddress = new Uri(apiUrl);
+                    httpClient.BaseAddress = new Uri(this.environmentVariable.Value);
 
                     //var response = await httpClient.GetAsync("weatherforecast");
                     //response.EnsureSuccessStatusCode();
