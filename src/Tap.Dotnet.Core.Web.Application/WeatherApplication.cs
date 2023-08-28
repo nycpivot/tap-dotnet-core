@@ -46,5 +46,19 @@ namespace Tap.Dotnet.Core.Web.Application
 
             return forecasts;
         }
+
+        public IList<WeatherForecastViewModel> GetRandomForecastsByClaim()
+        {
+            var serviceBindings = Environment.GetEnvironmentVariable("SERVICE_BINDING_ROOT");
+            var weatherApi = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "weather-api", "host"));
+
+            var secretPath = Path.Combine(serviceBindings, "weather-api", "host");
+            ViewBag.SecretPath = secretPath;
+
+            var weatherApi = System.IO.File.ReadAllText(secretPath);
+            ViewBag.WeatherApi = weatherApi;
+
+            weatherApi = weatherApi.Trim();
+        }
     }
 }
