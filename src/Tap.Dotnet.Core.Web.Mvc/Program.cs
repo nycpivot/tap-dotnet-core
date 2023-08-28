@@ -1,9 +1,21 @@
+using Newtonsoft.Json.Linq;
 using System.Net;
+using System.Security.Policy;
+using Tap.Dotnet.Core.Web.Application;
+using Tap.Dotnet.Core.Web.Application.Interfaces;
+using Wavefront.SDK.CSharp.DirectIngestion;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+var wavefrontUrl = "";
+var wavefrontToken = "";
+
+builder.Services.AddSingleton(new WavefrontDirectIngestionClient.Builder(wavefrontUrl, wavefrontToken));
+
+builder.Services.AddScoped<IWeatherApplication, WeatherApplication>();
 
 //builder.Services.AddHttpClient("Name").ConfigurePrimaryHttpMessageHandler(() => {
 //var handler = new HttpClientHandler

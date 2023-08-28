@@ -1,0 +1,52 @@
+﻿﻿<div class="text-center">
+    <h1 class="display-4">Environment</h1>
+    <table>
+        @foreach (var variable in ViewBag.Variables)
+        {
+            <tr>
+                @if (variable.Key == "WEATHER_API")
+                {
+                    <td style="text-align: left; font-weight: bold;">@variable.Key</td>
+                    <td style="text-align: left; font-weight: bold;"><a href="@variable.Value/weatherforecast" target="_blank">@variable.Value</a></td>
+                }
+                else
+                {
+                    <td style="text-align: left;">@variable.Key</td>
+                    <td style="text-align: left;">@variable.Value</td>
+                }
+            </tr>
+        }
+    </table>
+</div>
+
+<div style="height: 525px;">
+</div>
+
+<div class="container">
+    <div class="text-center border-top">
+        <h6 class="display-6">Weather Forecast</h6>
+        <table style="width:100%;">
+            <tr>
+                <td>@ViewBag.Forecast1.Date.DayOfWeek</td>
+                <td>@ViewBag.Forecast2.Date.DayOfWeek</td>
+                <td>@ViewBag.Forecast3.Date.DayOfWeek</td>
+                <td>@ViewBag.Forecast4.Date.DayOfWeek</td>
+                <td>@ViewBag.Forecast5.Date.DayOfWeek</td>
+            </tr>
+            <tr>
+                <td>@ViewBag.Forecast1.TemperatureF℉</td>
+                <td>@ViewBag.Forecast2.TemperatureF℉</td>
+                <td>@ViewBag.Forecast3.TemperatureF℉</td>
+                <td>@ViewBag.Forecast4.TemperatureF℉</td>
+                <td>@ViewBag.Forecast5.TemperatureF℉</td>
+            </tr>
+            <tr>
+                <td>@ViewBag.Forecast1.Summary</td>
+                <td>@ViewBag.Forecast2.Summary</td>
+                <td>@ViewBag.Forecast3.Summary</td>
+                <td>@ViewBag.Forecast4.Summary</td>
+                <td>@ViewBag.Forecast5.Summary</td>
+            </tr>
+        </table>
+    </div>
+</div>

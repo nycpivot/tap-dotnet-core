@@ -6,16 +6,22 @@ using System.Net;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using Tap.Dotnet.Core.Web.Application.Interfaces;
 using Tap.Dotnet.Core.Web.Mvc.Models;
 
 namespace Tap.Dotnet.Core.Web.Mvc.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IWeatherApplication weatherApplication;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(
+            IWeatherApplication weatherApplication,
+            ILogger<HomeController> logger)
         {
+            this.weatherApplication = weatherApplication;
+
             _logger = logger;
         }
 

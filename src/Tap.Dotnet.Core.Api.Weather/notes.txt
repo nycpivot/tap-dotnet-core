@@ -1,0 +1,3 @@
+﻿https://www.weatherbit.io/account/login?next=%2Faccount%2Fdashboard
+
+https://www.weatherbit.io/api/swaggerui/weather-api-v2#!
