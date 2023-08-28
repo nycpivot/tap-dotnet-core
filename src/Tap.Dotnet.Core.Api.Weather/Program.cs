@@ -1,3 +1,5 @@
+using Wavefront.SDK.CSharp.DirectIngestion;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

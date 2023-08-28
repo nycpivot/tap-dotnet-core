@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Wavefront.SDK.CSharp.DirectIngestion;
 
 namespace Tap.Dotnet.Core.Api.Weather.Controllers
 {
@@ -6,6 +7,18 @@ namespace Tap.Dotnet.Core.Api.Weather.Controllers
     [ApiController]
     public class RealForecastController : ControllerBase
     {
+        private readonly WavefrontDirectIngestionClient wfClient;
+
+        public RealForecastController()
+        {
+            var serviceBindings = Environment.GetEnvironmentVariable("SERVICE_BINDING_ROOT") ?? String.Empty;
+
+            var wavefrontUrl = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "wavefront-api", "host"));
+            var wavefrontToken = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "wavefront-api", "password"));
+
+            this.wfClient = new WavefrontDirectIngestionClient.Builder(wavefrontUrl, wavefrontToken).Build();
+        }
+
         [HttpGet]
         [Route("{zipcode}")]
         public IEnumerable<WeatherForecast> Get(string zipcode)
