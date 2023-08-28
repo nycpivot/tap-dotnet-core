@@ -4,7 +4,7 @@ namespace Tap.Dotnet.Core.Api.Weather.Controllers
 {
     [Route("forecast")]
     [ApiController]
-    public class WeatherForecastController : ControllerBase
+    public class RealForecastController : ControllerBase
     {
         [HttpGet]
         [Route("{zipcode}")]
