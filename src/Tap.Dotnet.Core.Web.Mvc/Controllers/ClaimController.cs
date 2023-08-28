@@ -54,7 +54,7 @@ namespace Tap.Dotnet.Core.Web.Mvc.Controllers
 
             try
             {
-                var forecasts = this.weatherApplication.GetRandomForecastsByClaim();
+                var forecasts = this.weatherApplication.GetWeatherForecastsByEnvironment("");
 
                 if (forecasts != null && forecasts.Count == 5)
                 {
