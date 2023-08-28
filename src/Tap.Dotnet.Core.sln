@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tap.Dotnet.Core.Web.Mvc", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tap.Dotnet.Core.Api.Products", "Tap.Dotnet.Core.Api.Products\Tap.Dotnet.Core.Api.Products.csproj", "{4F2D2567-154F-42D1-B17B-D78E96E5BF8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tap.Dotnet.Core.Api.Weather", "Tap.Dotnet.Core.Api.Weather\Tap.Dotnet.Core.Api.Weather.csproj", "{26D9704D-0F6F-4D34-B3FA-E4CC04E0212D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tap.Dotnet.Core.Api.Weather", "Tap.Dotnet.Core.Api.Weather\Tap.Dotnet.Core.Api.Weather.csproj", "{26D9704D-0F6F-4D34-B3FA-E4CC04E0212D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tap.Dotnet.Core.Web.Application", "Tap.Dotnet.Core.Web.Application\Tap.Dotnet.Core.Web.Application.csproj", "{1886BE48-E99E-44D3-84D9-D55F8E33AB82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{26D9704D-0F6F-4D34-B3FA-E4CC04E0212D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26D9704D-0F6F-4D34-B3FA-E4CC04E0212D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26D9704D-0F6F-4D34-B3FA-E4CC04E0212D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1886BE48-E99E-44D3-84D9-D55F8E33AB82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1886BE48-E99E-44D3-84D9-D55F8E33AB82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1886BE48-E99E-44D3-84D9-D55F8E33AB82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1886BE48-E99E-44D3-84D9-D55F8E33AB82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
