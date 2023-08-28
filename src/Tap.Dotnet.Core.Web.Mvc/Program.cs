@@ -8,11 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var serviceBindings = Environment.GetEnvironmentVariable("SERVICE_BINDING_ROOT");
-var weatherApi = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "weather-api", "host"));
+var serviceBindings = Environment.GetEnvironmentVariable("SERVICE_BINDING_ROOT") ?? String.Empty;
 
-var wavefrontUrl = Environment.GetEnvironmentVariable("WAVEFRONT_URL");
-var wavefrontToken = Environment.GetEnvironmentVariable("WAVEFRONT_TOKEN");
+var weatherApi = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "weather-api", "host"));
+var wavefrontUrl = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "wavefront-api", "host"));
+var wavefrontToken = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "wavefront-api", "password"));
 
 var envVariable = new EnvironmentVariable() { Key = "WEATHER_API", Value = weatherApi };
 var wfClient = new WavefrontDirectIngestionClient.Builder(wavefrontUrl, wavefrontToken).Build();
