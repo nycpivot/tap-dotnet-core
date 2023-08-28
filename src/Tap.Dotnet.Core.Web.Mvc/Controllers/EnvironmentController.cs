@@ -1,9 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using System.Collections;
-using System.Net;
 using Tap.Dotnet.Core.Web.Application.Interfaces;
-using Tap.Dotnet.Core.Web.Mvc.Models;
 
 namespace Tap.Dotnet.Core.Web.Mvc.Controllers
 {
