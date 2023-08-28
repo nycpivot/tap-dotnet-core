@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Tap.Dotnet.Core.Api.Weather.Interfaces;
 using Wavefront.SDK.CSharp.DirectIngestion;
 
 namespace Tap.Dotnet.Core.Api.Weather.Controllers
@@ -7,32 +8,22 @@ namespace Tap.Dotnet.Core.Api.Weather.Controllers
     [ApiController]
     public class RealForecastController : ControllerBase
     {
-        private readonly WavefrontDirectIngestionClient wfClient;
+        private readonly IApiHelper apiHelper;
 
-        public RealForecastController()
+        public RealForecastController(IApiHelper apiHelper)
         {
-            var serviceBindings = Environment.GetEnvironmentVariable("SERVICE_BINDING_ROOT") ?? String.Empty;
-
-            var wavefrontUrl = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "wavefront-api", "host"));
-            var wavefrontToken = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "wavefront-api", "password"));
-
-            this.wfClient = new WavefrontDirectIngestionClient.Builder(wavefrontUrl, wavefrontToken).Build();
+            this.apiHelper = apiHelper;
         }
 
         [HttpGet]
-        [Route("{zipcode}")]
-        public IEnumerable<WeatherForecast> Get(string zipcode)
+        [Route("{zipCode}")]
+        public IEnumerable<WeatherForecast> GetByZipCode(string zipCode)
         {
-            var serviceBindings = Environment.GetEnvironmentVariable("SERVICE_BINDING_ROOT");
+            var url = this.apiHelper.WeatherBitUrl;
+            var key = this.apiHelper.WeatherBitKey;
 
-            var hostFile = Path.Combine(serviceBindings, "weather-api", "host");
-            var passwordFile = Path.Combine(serviceBindings, "weather-api", "password");
-
-            var host = System.IO.File.ReadAllText(hostFile);
-            var password = System.IO.File.ReadAllText(passwordFile);
-
-            var currentWeatherUrl = new Uri($"{host}/current?postal_code={zipcode}&key={password}");
-            var forecastUrl = new Uri($"{host}/forecast/daily?postal_code={zipcode}&key={password}");
+            var currentWeatherUrl = new Uri($"{url}/current?postal_code={zipCode}&key={key}");
+            var forecastUrl = new Uri($"{url}/forecast/daily?postal_code={zipCode}&key={key}");
 
             return null;
         }
