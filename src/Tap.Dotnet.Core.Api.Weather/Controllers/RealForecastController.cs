@@ -1,23 +1,11 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Tap.Dotnet.Core.Api.Weather.Controllers
 {
+    [Route("forecast")]
     [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class RealForecastController : ControllerBase
     {
-        //private static readonly string[] Summaries = new[]
-        //{
-        //    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        //};
-
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
-        {
-            _logger = logger;
-        }
-
         [HttpGet]
         [Route("{zipcode}")]
         public IEnumerable<WeatherForecast> Get(string zipcode)
