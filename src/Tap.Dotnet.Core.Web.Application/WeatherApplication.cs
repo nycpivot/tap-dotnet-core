@@ -35,7 +35,7 @@ namespace Tap.Dotnet.Core.Web.Application
                     //var response = await httpClient.GetAsync("weatherforecast");
                     //response.EnsureSuccessStatusCode();
 
-                    var response = httpClient.GetAsync("weatherforecast").Result;
+                    var response = httpClient.GetAsync("forecast/random").Result;
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
                         var content = response.Content.ReadAsStringAsync().Result;
