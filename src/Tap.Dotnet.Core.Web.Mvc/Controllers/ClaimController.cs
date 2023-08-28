@@ -1,16 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Collections;
 using Tap.Dotnet.Core.Web.Application.Interfaces;
-using Tap.Dotnet.Core.Web.Application.Models;
 
 namespace Tap.Dotnet.Core.Web.Mvc.Controllers
 {
-    public class EnvironmentController : Controller
+    public class ClaimController : Controller
     {
         private readonly IWeatherApplication weatherApplication;
         private readonly ILogger<HomeController> _logger;
 
-        public EnvironmentController(
+        public ClaimController(
             IWeatherApplication weatherApplication,
             ILogger<HomeController> logger)
         {
@@ -24,28 +22,15 @@ namespace Tap.Dotnet.Core.Web.Mvc.Controllers
             // list environment variables
             try
             {
-                var variables = new List<EnvironmentVariable>();
+                var serviceBindings = Environment.GetEnvironmentVariable("SERVICE_BINDING_ROOT") ?? String.Empty;
 
-                try
-                {
-                    var environment = Environment.GetEnvironmentVariables();
-                    foreach (DictionaryEntry variable in environment)
-                    {
-                        var ev = new EnvironmentVariable()
-                        {
-                            Key = variable.Key.ToString() ?? String.Empty,
-                            Value = variable.Value?.ToString() ?? String.Empty
-                        };
+                var secretPath = Path.Combine(serviceBindings, "weather-api", "host");
+                ViewBag.SecretPath = secretPath;
 
-                        variables.Add(ev);
-                    }
-                }
-                catch
-                {
-                    // send errors somewhere
-                }
+                var weatherApi = System.IO.File.ReadAllText(secretPath);
+                ViewBag.WeatherApi = weatherApi;
 
-                ViewBag.Variables = variables.OrderBy(e => e.Key).ToList();
+                weatherApi = weatherApi.Trim();
             }
             catch (Exception ex)
             {
@@ -71,6 +56,7 @@ namespace Tap.Dotnet.Core.Web.Mvc.Controllers
             }
 
             return View();
+
         }
     }
 }
