@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Tap.Dotnet.Core.Api.Weather.Interfaces;
+using Tap.Dotnet.Core.Api.Weather.Models;
 
 namespace Tap.Dotnet.Core.Api.Weather.Controllers
 {
@@ -6,6 +8,13 @@ namespace Tap.Dotnet.Core.Api.Weather.Controllers
     [Route("forecast/random")]
     public class RandomForecastController : ControllerBase
     {
+        private readonly IApiHelper apiHelper;
+
+        public RandomForecastController(IApiHelper apiHelper)
+        {
+            this.apiHelper = apiHelper;
+        }
+
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"

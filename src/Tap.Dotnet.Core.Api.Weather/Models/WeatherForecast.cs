@@ -1,4 +1,4 @@
-namespace Tap.Dotnet.Core.Api.Weather
+namespace Tap.Dotnet.Core.Api.Weather.Models
 {
     public class WeatherForecast
     {
