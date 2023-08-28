@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Tap.Dotnet.Core.Api.Catalog.props" />
+</Project>

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "I8nu1GmMRmIuShBNgXBW3ybzSiAxnRN8n7DPuRANAr8=",
+  "Source": "Tap.Dotnet.Core.Api.Catalog",
+  "BasePath": "_content/Tap.Dotnet.Core.Api.Catalog",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

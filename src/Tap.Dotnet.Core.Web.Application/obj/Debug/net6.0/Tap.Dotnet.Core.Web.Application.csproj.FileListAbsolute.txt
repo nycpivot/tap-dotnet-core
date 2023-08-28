@@ -1,0 +1,15 @@
+C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Web.Application\bin\Debug\net6.0\Tap.Dotnet.Core.Web.Application.deps.json
+C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Web.Application\bin\Debug\net6.0\Tap.Dotnet.Core.Web.Application.dll
+C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Web.Application\bin\Debug\net6.0\Tap.Dotnet.Core.Web.Application.pdb
+C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Web.Application\bin\Debug\net6.0\Tap.Dotnet.Core.Domain.dll
+C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Web.Application\bin\Debug\net6.0\Tap.Dotnet.Core.Domain.pdb
+C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Web.Application\obj\Debug\net6.0\Tap.Dotnet.Core.Web.Application.csproj.AssemblyReference.cache
+C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Web.Application\obj\Debug\net6.0\Tap.Dotnet.Core.Web.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Web.Application\obj\Debug\net6.0\Tap.Dotnet.Core.Web.Application.AssemblyInfoInputs.cache
+C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Web.Application\obj\Debug\net6.0\Tap.Dotnet.Core.Web.Application.AssemblyInfo.cs
+C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Web.Application\obj\Debug\net6.0\Tap.Dotnet.Core.Web.Application.csproj.CoreCompileInputs.cache
+C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Web.Application\obj\Debug\net6.0\Tap.Dotnet.Core.Web.Application.csproj.CopyComplete
+C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Web.Application\obj\Debug\net6.0\Tap.Dotnet.Core.Web.Application.dll
+C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Web.Application\obj\Debug\net6.0\refint\Tap.Dotnet.Core.Web.Application.dll
+C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Web.Application\obj\Debug\net6.0\Tap.Dotnet.Core.Web.Application.pdb
+C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Web.Application\obj\Debug\net6.0\ref\Tap.Dotnet.Core.Web.Application.dll

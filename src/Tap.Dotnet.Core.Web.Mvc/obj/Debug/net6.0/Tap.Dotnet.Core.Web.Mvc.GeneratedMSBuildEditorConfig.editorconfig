@@ -16,8 +16,8 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Web.Mvc
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/mjames/Documents/tap-dotnet-core/src/Tap.Dotnet.Core.Web.Mvc/Views/Home/Export.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFeHBvcnQuY3NodG1s
+[C:/Users/mjames/Documents/tap-dotnet-core/src/Tap.Dotnet.Core.Web.Mvc/Views/Environment/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW52aXJvbm1lbnRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mjames/Documents/tap-dotnet-core/src/Tap.Dotnet.Core.Web.Mvc/Views/Home/Index.cshtml]

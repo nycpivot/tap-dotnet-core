@@ -1,27 +1,30 @@
-using System.Net;
+using Tap.Dotnet.Core.Web.Application;
+using Tap.Dotnet.Core.Web.Application.Interfaces;
+using Wavefront.SDK.CSharp.DirectIngestion;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-//builder.Services.AddHttpClient("Name").ConfigurePrimaryHttpMessageHandler(() => {
-//var handler = new HttpClientHandler
-//{
-//    AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate,
-//    ServerCertificateCustomValidationCallback = (sender, certificate, chain, errors) =>
-//    {
-//        return true;
-//    }
-//}
+var weatherApi = Environment.GetEnvironmentVariable("WEATHER_API");
+var wavefrontUrl = Environment.GetEnvironmentVariable("WAVEFRONT_URL");
+var wavefrontToken = Environment.GetEnvironmentVariable("WAVEFRONT_TOKEN");
+
+var wfClient = new WavefrontDirectIngestionClient.Builder(wavefrontUrl, wavefrontToken).Build();
+
+var weatherApplication = new WeatherApplication(weatherApi, wfClient);
+
+builder.Services.AddSingleton(weatherApplication);
 
 var app = builder.Build();
 
-    // Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
+
 app.UseStaticFiles();
 
 app.UseRouting();
