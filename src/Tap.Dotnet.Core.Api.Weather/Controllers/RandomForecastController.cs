@@ -9,23 +9,18 @@ namespace Tap.Dotnet.Core.Api.Weather.Controllers
     public class RandomForecastController : ControllerBase
     {
         private readonly IApiHelper apiHelper;
+        private readonly ILogger<RandomForecastController> logger;
 
-        public RandomForecastController(IApiHelper apiHelper)
+        public RandomForecastController(IApiHelper apiHelper, ILogger<RandomForecastController> logger)
         {
             this.apiHelper = apiHelper;
+            this.logger = logger;
         }
 
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
-
-        private readonly ILogger<RandomForecastController> _logger;
-
-        public RandomForecastController(ILogger<RandomForecastController> logger)
-        {
-            _logger = logger;
-        }
 
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
