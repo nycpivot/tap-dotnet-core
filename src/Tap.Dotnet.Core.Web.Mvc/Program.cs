@@ -5,9 +5,6 @@ using Wavefront.SDK.CSharp.DirectIngestion;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
-
 var weatherApi = Environment.GetEnvironmentVariable("WEATHER_API") ?? String.Empty;
 var wavefrontUrl = Environment.GetEnvironmentVariable("WAVEFRONT_URL") ?? String.Empty;
 var wavefrontToken = Environment.GetEnvironmentVariable("WAVEFRONT_TOKEN") ?? String.Empty;
@@ -22,6 +19,9 @@ var apiHelper = new ApiHelper()
 
 builder.Services.AddSingleton<IApiHelper>(apiHelper);
 builder.Services.AddScoped<IWeatherApplication, WeatherApplication>();
+
+// Add services to the container.
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
