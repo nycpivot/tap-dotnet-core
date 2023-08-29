@@ -1,27 +1,36 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections;
+using System.Collections.Immutable;
+using Tap.Dotnet.Core.Common.Interfaces;
 using Tap.Dotnet.Core.Web.Application.Interfaces;
-using Tap.Dotnet.Core.Web.Application.Models;
 using Tap.Dotnet.Core.Web.Mvc.Models;
+using Wavefront.SDK.CSharp.Common;
 
 namespace Tap.Dotnet.Core.Web.Mvc.Controllers
 {
     public class EnvironmentController : Controller
     {
         private readonly IWeatherApplication weatherApplication;
+        private readonly IApiHelper apiHelper;
         private readonly ILogger<HomeController> _logger;
 
         public EnvironmentController(
             IWeatherApplication weatherApplication,
+            IApiHelper apiHelper,
             ILogger<HomeController> logger)
         {
             this.weatherApplication = weatherApplication;
-
+            this.apiHelper = apiHelper;
             _logger = logger;
         }
 
         public IActionResult Index()
         {
+            var traceId = Guid.NewGuid();
+            var spanId = Guid.NewGuid();
+
+            var start = DateTimeUtils.UnixTimeMilliseconds(DateTime.UtcNow);
+
             // list environment variables
             try
             {
@@ -55,7 +64,17 @@ namespace Tap.Dotnet.Core.Web.Mvc.Controllers
 
             try
             {
-                var forecasts = this.weatherApplication.GetRandomForecastsByEnvironment();
+                var end = DateTimeUtils.UnixTimeMilliseconds(DateTime.UtcNow);
+
+                this.apiHelper.WavefrontSender.SendSpan(
+                    "Get", start, end, "EnvironmentController", traceId, spanId,
+                    ImmutableList.Create(new Guid("2f64e538-9457-11e8-9eb6-529269fb1459")), null,
+                    ImmutableList.Create(
+                        new KeyValuePair<string, string>("application", "tap-dotnet-core-api-weather-env"),
+                        new KeyValuePair<string, string>("service", "random-forecast-controller"),
+                        new KeyValuePair<string, string>("http.method", "GET")), null);
+
+                var forecasts = this.weatherApplication.GetRandomForecastsByEnvironment(traceId);
 
                 if (forecasts != null && forecasts.Count == 5)
                 {
