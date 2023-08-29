@@ -22,7 +22,7 @@ namespace Tap.Dotnet.Core.Web.Application
             var forecasts = new List<WeatherForecastViewModel>();
 
             this.apiHelper.WavefrontSender.SendSpan(
-                "GetRandomForecastsByEnvironment", 0, 0, "WeatherApplication", traceId, new Guid(),
+                "GetRandomForecastsByEnvironment", 0, 0, "WeatherApplication", traceId, Guid.NewGuid(),
                 ImmutableList.Create(new Guid("2f64e538-9457-11e8-9eb6-529269fb1459")), null,
                 ImmutableList.Create(
                     new KeyValuePair<string, string>("application", "tap-dotnet-core-api-weather-env"),
