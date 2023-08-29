@@ -1635,6 +1635,14 @@
           }
         }
       },
+      "Tap.Dotnet.Core.Common/1.0.0": {
+        "dependencies": {
+          "Wavefront.AspNetCore.SDK.CSharp": "1.4.0"
+        },
+        "runtime": {
+          "Tap.Dotnet.Core.Common.dll": {}
+        }
+      },
       "Tap.Dotnet.Core.Domain/1.0.0": {
         "runtime": {
           "Tap.Dotnet.Core.Domain.dll": {}
@@ -1642,6 +1650,7 @@
       },
       "Tap.Dotnet.Core.Web.Application/1.0.0": {
         "dependencies": {
+          "Tap.Dotnet.Core.Common": "1.0.0",
           "Tap.Dotnet.Core.Domain": "1.0.0",
           "Wavefront.AspNetCore.SDK.CSharp": "1.4.0"
         },
@@ -2979,6 +2988,11 @@
       "sha512": "sha512-2czgDAuAOGgXbIy0uF0X7kMj3UlykXcqD86m+aSZaKS119KrDOjHWsYtQQTf5/t/0McKdZcAjB3olOFpcH+dNQ==",
       "path": "wavefront.sdk.csharp/1.5.0",
       "hashPath": "wavefront.sdk.csharp.1.5.0.nupkg.sha512"
+    },
+    "Tap.Dotnet.Core.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Tap.Dotnet.Core.Domain/1.0.0": {
       "type": "project",

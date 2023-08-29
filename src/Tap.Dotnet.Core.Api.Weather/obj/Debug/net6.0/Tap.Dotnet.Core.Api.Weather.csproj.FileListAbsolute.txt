@@ -61,3 +61,5 @@ C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Api.Weather\bin\De
 C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Api.Weather\bin\Debug\net6.0\Wavefront.OpenTracing.SDK.CSharp.dll
 C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Api.Weather\bin\Debug\net6.0\Wavefront.SDK.CSharp.dll
 C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Api.Weather\obj\Debug\net6.0\Tap.Dotnet.Core.Api.Weather.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Api.Weather\bin\Debug\net6.0\Tap.Dotnet.Core.Common.dll
+C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Api.Weather\bin\Debug\net6.0\Tap.Dotnet.Core.Common.pdb
