@@ -1,6 +1,11 @@
+using App.Metrics;
+using App.Metrics.Reporting.Wavefront.Builder;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Immutable;
 using Tap.Dotnet.Core.Api.Weather.Interfaces;
 using Tap.Dotnet.Core.Api.Weather.Models;
+using Wavefront.SDK.CSharp.Common;
+using Wavefront.SDK.CSharp.Common.Application;
 
 namespace Tap.Dotnet.Core.Api.Weather.Controllers
 {
@@ -25,6 +30,8 @@ namespace Tap.Dotnet.Core.Api.Weather.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
+            var start = DateTimeUtils.UnixTimeMilliseconds(DateTime.UtcNow);
+
             var forecast = Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
@@ -39,8 +46,39 @@ namespace Tap.Dotnet.Core.Api.Weather.Controllers
 
             tags.Add("DeploymentType", "Environment");
 
-            this.apiHelper.WavefrontSender.SendMetric("MinimumRandomForecast", min, DateTime.Now.Ticks, "Tap.Dotnet.Core.Api.Weather", tags);
-            this.apiHelper.WavefrontSender.SendMetric("MaximumRandomForecast", max, DateTime.Now.Ticks, "Tap.Dotnet.Core.Api.Weather", tags);
+            // save as storage in wavefront
+            this.apiHelper.WavefrontSender.SendMetric("MinimumRandomForecast", min, 
+                DateTimeUtils.UnixTimeMilliseconds(DateTime.UtcNow), "tap-dotnet-core-api-weather-env", tags);
+            this.apiHelper.WavefrontSender.SendMetric("MaximumRandomForecast", max,
+                DateTimeUtils.UnixTimeMilliseconds(DateTime.UtcNow), "tap-dotnet-core-api-weather-env", tags);
+
+            // report metrics
+            var applicationTags = new ApplicationTags.Builder("tap-dotnet-core-api-weather-env", "random-forecast-controller").Build();
+
+            var metricsBuilder = new MetricsBuilder();
+
+            metricsBuilder.Report.ToWavefront(
+              options =>
+              {
+                  options.WavefrontSender = this.apiHelper.WavefrontSender;
+                  options.Source = "tap-dotnet-core-api-weather-env"; // optional
+                  options.WavefrontHistogram.ReportMinuteDistribution = true; // optional
+                  options.ApplicationTags = applicationTags;
+              });
+
+            var end = DateTimeUtils.UnixTimeMilliseconds(DateTime.UtcNow);
+
+            this.apiHelper.WavefrontSender.SendSpan(
+                "GetRandomWeatherForecast",
+                start, end, "tap-dotnet-core-api-weather-env",
+                new Guid("7b3bf470-9456-11e8-9eb6-529269fb1459"),
+                new Guid("0313bafe-9457-11e8-9eb6-529269fb1459"),
+                ImmutableList.Create(
+                    new Guid("2f64e538-9457-11e8-9eb6-529269fb1459")), null,
+                ImmutableList.Create(
+                    new KeyValuePair<string, string>("application", "tap-dotnet-core-api-weather-env"),
+                    new KeyValuePair<string, string>("service", "random-forecast-controller"),
+                    new KeyValuePair<string, string>("http.method", "GET")), null);
 
             return forecast;
         }
