@@ -33,8 +33,8 @@ namespace Tap.Dotnet.Core.Api.Weather.Controllers
             })
             .ToArray();
 
-            var min = Convert.ToDouble(forecast.Min(t => t));
-            var max = Convert.ToDouble(forecast.Max(t => t));
+            var min = Convert.ToDouble(forecast.Min(t => t.TemperatureC));
+            var max = Convert.ToDouble(forecast.Max(t => t.TemperatureC));
             var tags = new Dictionary<string, string>();
 
             tags.Add("DeploymentType", "Environment");
