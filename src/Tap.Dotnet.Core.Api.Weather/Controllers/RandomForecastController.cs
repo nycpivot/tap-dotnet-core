@@ -76,7 +76,7 @@ namespace Tap.Dotnet.Core.Api.Weather.Controllers
                 ImmutableList.Create(new Guid("2f64e538-9457-11e8-9eb6-529269fb1459")), null,
                 ImmutableList.Create(
                     new KeyValuePair<string, string>("application", "tap-dotnet-core-api-weather-env"),
-                    new KeyValuePair<string, string>("service", "random-forecast-controller"),
+                    new KeyValuePair<string, string>("service", "RandomForecastController"),
                     new KeyValuePair<string, string>("http.method", "GET")), null);
 
             return forecast;

@@ -25,8 +25,8 @@ namespace Tap.Dotnet.Core.Web.Application
                 "GetRandomForecastsByEnvironment", 0, 0, "WeatherApplication", traceId, Guid.NewGuid(),
                 ImmutableList.Create(new Guid("2f64e538-9457-11e8-9eb6-529269fb1459")), null,
                 ImmutableList.Create(
-                    new KeyValuePair<string, string>("application", "tap-dotnet-core-api-weather-env"),
-                    new KeyValuePair<string, string>("service", "random-forecast-controller"),
+                    new KeyValuePair<string, string>("application", "tap-dotnet-core-web-mvc-env"),
+                    new KeyValuePair<string, string>("service", "WeatherApplication"),
                     new KeyValuePair<string, string>("http.method", "GET")), null);
 
             using (var handler = new HttpClientHandler())
