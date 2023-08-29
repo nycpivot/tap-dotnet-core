@@ -2,7 +2,6 @@ using Tap.Dotnet.Core.Common;
 using Tap.Dotnet.Core.Common.Interfaces;
 using Tap.Dotnet.Core.Web.Application;
 using Tap.Dotnet.Core.Web.Application.Interfaces;
-using Tap.Dotnet.Core.Web.Application.Models;
 using Wavefront.SDK.CSharp.DirectIngestion;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,8 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 var serviceBindings = Environment.GetEnvironmentVariable("SERVICE_BINDING_ROOT") ?? String.Empty;
 
 var weatherApi = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "weather-api", "host"));
-var wavefrontUrl = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "wavefront-url", "host"));
-var wavefrontToken = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "wavefront-token", "token"));
+var wavefrontUrl = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "wavefront-api", "host"));
+var wavefrontToken = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "wavefront-api", "token"));
 
 var wfSender = new WavefrontDirectIngestionClient.Builder(wavefrontUrl, wavefrontToken).Build();
 
