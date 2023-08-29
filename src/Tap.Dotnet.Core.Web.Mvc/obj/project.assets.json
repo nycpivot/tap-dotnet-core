@@ -3303,22 +3303,11 @@
           "bin/placeholder/Tap.Dotnet.Core.Common.dll": {}
         }
       },
-      "Tap.Dotnet.Core.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/Tap.Dotnet.Core.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Tap.Dotnet.Core.Domain.dll": {}
-        }
-      },
       "Tap.Dotnet.Core.Web.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Tap.Dotnet.Core.Common": "1.0.0",
-          "Tap.Dotnet.Core.Domain": "1.0.0",
           "Wavefront.AspNetCore.SDK.CSharp": "1.4.0"
         },
         "compile": {
@@ -8867,11 +8856,6 @@
       "type": "project",
       "path": "../Tap.Dotnet.Core.Common/Tap.Dotnet.Core.Common.csproj",
       "msbuildProject": "../Tap.Dotnet.Core.Common/Tap.Dotnet.Core.Common.csproj"
-    },
-    "Tap.Dotnet.Core.Domain/1.0.0": {
-      "type": "project",
-      "path": "../Tap.Dotnet.Core.Domain/Tap.Dotnet.Core.Domain.csproj",
-      "msbuildProject": "../Tap.Dotnet.Core.Domain/Tap.Dotnet.Core.Domain.csproj"
     },
     "Tap.Dotnet.Core.Web.Application/1.0.0": {
       "type": "project",
