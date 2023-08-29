@@ -30,13 +30,24 @@ namespace Tap.Dotnet.Core.Api.Weather.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            var forecast = Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = Random.Shared.Next(-20, 55),
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+
+            var min = Convert.ToDouble(forecast.Min(t => t));
+            var max = Convert.ToDouble(forecast.Max(t => t));
+            var tags = new Dictionary<string, string>();
+
+            tags.Add("DeploymentType", "Environment");
+
+            this.apiHelper.WavefrontSender.SendMetric("MinimumRandomForecast", min, DateTime.Now.Ticks, "Tap.Dotnet.Core.Api.Weather", tags);
+            this.apiHelper.WavefrontSender.SendMetric("MaximumRandomForecast", max, DateTime.Now.Ticks, "Tap.Dotnet.Core.Api.Weather", tags);
+
+            return forecast;
         }
     }
 }

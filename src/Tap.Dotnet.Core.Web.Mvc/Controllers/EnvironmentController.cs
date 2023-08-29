@@ -2,6 +2,7 @@
 using System.Collections;
 using Tap.Dotnet.Core.Web.Application.Interfaces;
 using Tap.Dotnet.Core.Web.Application.Models;
+using Tap.Dotnet.Core.Web.Mvc.Models;
 
 namespace Tap.Dotnet.Core.Web.Mvc.Controllers
 {

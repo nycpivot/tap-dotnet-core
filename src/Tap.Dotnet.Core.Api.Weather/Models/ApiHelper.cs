@@ -1,5 +1,5 @@
 ﻿using Tap.Dotnet.Core.Api.Weather.Interfaces;
-using Wavefront.SDK.CSharp.DirectIngestion;
+using Wavefront.SDK.CSharp.Common;
 
 namespace Tap.Dotnet.Core.Api.Weather.Models
 {
@@ -7,7 +7,7 @@ namespace Tap.Dotnet.Core.Api.Weather.Models
     {
         private string weatherBitUrl = String.Empty;
         private string weatherBitKey = String.Empty;
-        private WavefrontDirectIngestionClient wavefrontDirectIngestionClient = null;
+        private IWavefrontSender wavefrontSender = null;
 
         public string WeatherBitUrl
         {
@@ -21,10 +21,10 @@ namespace Tap.Dotnet.Core.Api.Weather.Models
             set { weatherBitKey = value; }
         }
 
-        public WavefrontDirectIngestionClient WavefrontDirectIngestionClient
+        public IWavefrontSender WavefrontSender
         {
-            get { return wavefrontDirectIngestionClient; }
-            set { wavefrontDirectIngestionClient = value; }
+            get { return wavefrontSender; }
+            set { wavefrontSender = value; }
         }
     }
 }

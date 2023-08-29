@@ -8,16 +8,20 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var weatherApi = Environment.GetEnvironmentVariable("WEATHER_API");
-var wavefrontUrl = Environment.GetEnvironmentVariable("WAVEFRONT_URL");
-var wavefrontToken = Environment.GetEnvironmentVariable("WAVEFRONT_TOKEN");
+var weatherApi = Environment.GetEnvironmentVariable("WEATHER_API") ?? String.Empty;
+var wavefrontUrl = Environment.GetEnvironmentVariable("WAVEFRONT_URL") ?? String.Empty;
+var wavefrontToken = Environment.GetEnvironmentVariable("WAVEFRONT_TOKEN") ?? String.Empty;
 
-var envVariable = new EnvironmentVariable() { Key = "WEATHER_API", Value = weatherApi };
-var wfClient = new WavefrontDirectIngestionClient.Builder(wavefrontUrl, wavefrontToken).Build();
+var wfSender = new WavefrontDirectIngestionClient.Builder(wavefrontUrl, wavefrontToken).Build();
 
-var weatherApplication = new WeatherApplication(envVariable, wfClient);
+var apiHelper = new ApiHelper()
+{
+    WeatherApiUrl = weatherApi,
+    WavefrontSender = wfSender
+};
 
-builder.Services.AddSingleton<IWeatherApplication>(weatherApplication);
+builder.Services.AddSingleton<IApiHelper>(apiHelper);
+builder.Services.AddScoped<IWeatherApplication, WeatherApplication>();
 
 var app = builder.Build();
 

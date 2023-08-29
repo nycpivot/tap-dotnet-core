@@ -1,23 +1,20 @@
-using Microsoft.AspNetCore.Http.Extensions;
 using Tap.Dotnet.Core.Api.Weather.Interfaces;
 using Tap.Dotnet.Core.Api.Weather.Models;
 using Wavefront.SDK.CSharp.DirectIngestion;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 // get wavefront credentials
-var wavefrontUrl = Environment.GetEnvironmentVariable("WAVEFRONT-API");
-var wavefrontToken = Environment.GetEnvironmentVariable("WAVEFRONT-TOKEN");
+var wavefrontUrl = Environment.GetEnvironmentVariable("WAVEFRONT_URL");
+var wavefrontToken = Environment.GetEnvironmentVariable("WAVEFRONT_TOKEN");
 
 // create wavefront direct ingestion client
-var wfClient = new WavefrontDirectIngestionClient.Builder(wavefrontUrl, wavefrontToken).Build();
+var wfSender = new WavefrontDirectIngestionClient.Builder(wavefrontUrl, wavefrontToken).Build();
 
 var apiHelper = new ApiHelper()
 {
-    WavefrontDirectIngestionClient = wfClient
+    WavefrontSender = wfSender
 };
-
 
 // Add services to the container.
 builder.Services.AddSingleton<IApiHelper>(apiHelper);

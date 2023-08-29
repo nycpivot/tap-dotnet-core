@@ -1,4 +1,4 @@
-﻿using Wavefront.SDK.CSharp.DirectIngestion;
+﻿using Wavefront.SDK.CSharp.Common;
 
 namespace Tap.Dotnet.Core.Api.Weather.Interfaces
 {
@@ -6,6 +6,6 @@ namespace Tap.Dotnet.Core.Api.Weather.Interfaces
     {
         string WeatherBitUrl { get; set; }
         string WeatherBitKey { get; set; }
-        WavefrontDirectIngestionClient WavefrontDirectIngestionClient { get; set; }
+        IWavefrontSender WavefrontSender { get; set; }
     }
 }
