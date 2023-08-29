@@ -1,5 +1,6 @@
 using Tap.Dotnet.Core.Web.Application;
 using Tap.Dotnet.Core.Web.Application.Interfaces;
+using Tap.Dotnet.Core.Web.Application.Models;
 using Wavefront.SDK.CSharp.DirectIngestion;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,13 +15,12 @@ var wfSender = new WavefrontDirectIngestionClient.Builder(wavefrontUrl, wavefron
 
 var apiHelper = new ApiHelper()
 {
-    WeatherApiUrl = weatherApi,
+    WeatherApi = weatherApi,
     WavefrontSender = wfSender
 };
 
-var weatherApplication = new WeatherApplication(envVariable, wfClient);
-
-builder.Services.AddSingleton<IWeatherApplication>(weatherApplication);
+builder.Services.AddSingleton<IApiHelper>(apiHelper);
+builder.Services.AddSingleton<IWeatherApplication, WeatherApplication>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

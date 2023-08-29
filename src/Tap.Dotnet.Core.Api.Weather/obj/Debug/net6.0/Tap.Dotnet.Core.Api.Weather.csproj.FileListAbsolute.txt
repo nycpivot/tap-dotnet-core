@@ -24,3 +24,4 @@ C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Api.Weather\obj\De
 C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Api.Weather\obj\Debug\net6.0\Tap.Dotnet.Core.Api.Weather.pdb
 C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Api.Weather\obj\Debug\net6.0\Tap.Dotnet.Core.Api.Weather.genruntimeconfig.cache
 C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Api.Weather\obj\Debug\net6.0\ref\Tap.Dotnet.Core.Api.Weather.dll
+C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Api.Weather\obj\Debug\net6.0\Tap.Dotnet.Core.Api.Weather.MvcApplicationPartsAssemblyInfo.cs

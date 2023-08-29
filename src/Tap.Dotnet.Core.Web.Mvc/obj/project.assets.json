@@ -8863,7 +8863,8 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "Newtonsoft.Json >= 13.0.3",
-      "Tap.Dotnet.Core.Web.Application >= 1.0.0"
+      "Tap.Dotnet.Core.Web.Application >= 1.0.0",
+      "Wavefront.AspNetCore.SDK.CSharp >= 1.4.0"
     ]
   },
   "packageFolders": {
@@ -8913,6 +8914,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.3, )"
+          },
+          "Wavefront.AspNetCore.SDK.CSharp": {
+            "target": "Package",
+            "version": "[1.4.0, )"
           }
         },
         "imports": [

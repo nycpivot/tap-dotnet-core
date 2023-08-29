@@ -8,13 +8,11 @@ namespace Tap.Dotnet.Core.Web.Application
 {
     public class WeatherApplication : IWeatherApplication
     {
-        private readonly EnvironmentVariable environmentVariable;
-        private readonly WavefrontDirectIngestionClient wfClient;
+        private readonly IApiHelper apiHelper;
 
-        public WeatherApplication(EnvironmentVariable environmentVariable, WavefrontDirectIngestionClient wfClient)
+        public WeatherApplication(IApiHelper apiHelper)
         {
-            this.environmentVariable = environmentVariable;
-            this.wfClient = wfClient;
+            this.apiHelper = apiHelper;
         }
 
         public IList<WeatherForecastViewModel> GetRandomForecastsByEnvironment()
@@ -30,7 +28,7 @@ namespace Tap.Dotnet.Core.Web.Application
 
                 using (var httpClient = new HttpClient(handler))
                 {
-                    httpClient.BaseAddress = new Uri(this.environmentVariable.Value);
+                    httpClient.BaseAddress = new Uri(this.apiHelper.WeatherApi);
 
                     //var response = await httpClient.GetAsync("weatherforecast");
                     //response.EnsureSuccessStatusCode();
