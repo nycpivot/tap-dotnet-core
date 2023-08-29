@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Tap.Dotnet.Core.Domain\Tap.Dotnet.Core.Domain.csproj" />
+    <ProjectReference Include="..\Tap.Dotnet.Core.Common\Tap.Dotnet.Core.Common.csproj" />
   </ItemGroup>
 
 </Project>
