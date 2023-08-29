@@ -2,6 +2,6 @@
 {
     public class WeatherBitDescription
     {
-        public string description { get; set; }
+        public string description { get; set; } = String.Empty;
     }
 }

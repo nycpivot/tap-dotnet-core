@@ -2,8 +2,8 @@ using App.Metrics;
 using App.Metrics.Reporting.Wavefront.Builder;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Immutable;
-using Tap.Dotnet.Core.Api.Weather.Interfaces;
 using Tap.Dotnet.Core.Api.Weather.Models;
+using Tap.Dotnet.Core.Common.Interfaces;
 using Wavefront.SDK.CSharp.Common;
 using Wavefront.SDK.CSharp.Common.Application;
 

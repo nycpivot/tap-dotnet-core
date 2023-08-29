@@ -1,7 +1,5 @@
-using App.Metrics;
-using Tap.Dotnet.Core.Api.Weather.Interfaces;
-using Tap.Dotnet.Core.Api.Weather.Models;
-using Wavefront.SDK.CSharp.Common.Application;
+using Tap.Dotnet.Core.Common;
+using Tap.Dotnet.Core.Common.Interfaces;
 using Wavefront.SDK.CSharp.DirectIngestion;
 
 var builder = WebApplication.CreateBuilder(args);

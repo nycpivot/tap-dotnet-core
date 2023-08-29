@@ -1,7 +1,7 @@
-﻿using Tap.Dotnet.Core.Web.Application.Interfaces;
+﻿using Tap.Dotnet.Core.Common.Interfaces;
 using Wavefront.SDK.CSharp.Common;
 
-namespace Tap.Dotnet.Core.Web.Application.Models
+namespace Tap.Dotnet.Core.Common
 {
     public class ApiHelper : IApiHelper
     {

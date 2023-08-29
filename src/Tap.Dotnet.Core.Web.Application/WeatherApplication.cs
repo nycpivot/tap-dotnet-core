@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Net;
+using Tap.Dotnet.Core.Common.Interfaces;
 using Tap.Dotnet.Core.Web.Application.Interfaces;
 using Tap.Dotnet.Core.Web.Application.Models;
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "kuQOJ073IugsV29ILtSYaIbp1TOgikrUo/ezefdeMToY890UOtsC95iBQqcHgLQLeW1d34norzQifiwQS4fXNQ==",
+  "dgSpecHash": "KEY7C5nyrruxJSvwQ9pE7ITprZY5BWRHCXG0IPXhmHkEHt+n2DTdoxnJTJRmb3FFAqIC9tGuF0LrUYkCaCazcg==",
   "success": true,
   "projectFilePath": "C:\\Users\\mjames\\Documents\\tap-dotnet-core\\src\\Tap.Dotnet.Core.Api.Weather\\Tap.Dotnet.Core.Api.Weather.csproj",
   "expectedPackageFiles": [

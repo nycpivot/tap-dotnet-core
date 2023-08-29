@@ -3290,6 +3290,19 @@
           "lib/netstandard2.0/Wavefront.SDK.CSharp.dll": {}
         }
       },
+      "Tap.Dotnet.Core.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Wavefront.AspNetCore.SDK.CSharp": "1.4.0"
+        },
+        "compile": {
+          "bin/placeholder/Tap.Dotnet.Core.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Tap.Dotnet.Core.Common.dll": {}
+        }
+      },
       "Tap.Dotnet.Core.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -3304,6 +3317,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Tap.Dotnet.Core.Common": "1.0.0",
           "Tap.Dotnet.Core.Domain": "1.0.0",
           "Wavefront.AspNetCore.SDK.CSharp": "1.4.0"
         },
@@ -8848,6 +8862,11 @@
         "wavefront.sdk.csharp.1.5.0.nupkg.sha512",
         "wavefront.sdk.csharp.nuspec"
       ]
+    },
+    "Tap.Dotnet.Core.Common/1.0.0": {
+      "type": "project",
+      "path": "../Tap.Dotnet.Core.Common/Tap.Dotnet.Core.Common.csproj",
+      "msbuildProject": "../Tap.Dotnet.Core.Common/Tap.Dotnet.Core.Common.csproj"
     },
     "Tap.Dotnet.Core.Domain/1.0.0": {
       "type": "project",
