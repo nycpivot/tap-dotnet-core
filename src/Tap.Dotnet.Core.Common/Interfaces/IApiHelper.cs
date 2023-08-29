@@ -1,10 +1,10 @@
 ﻿using Wavefront.SDK.CSharp.Common;
 
-namespace Tap.Dotnet.Core.Web.Application.Interfaces
+namespace Tap.Dotnet.Core.Common.Interfaces
 {
     public interface IApiHelper
     {
-        string WeatherApi { get; set; }
+        string WeatherApiUrl { get; set; }
         IWavefrontSender WavefrontSender { get; set; }
     }
 }

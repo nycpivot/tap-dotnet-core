@@ -2,6 +2,7 @@ using App.Metrics;
 using App.Metrics.Reporting.Wavefront.Builder;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Immutable;
+using Tap.Dotnet.Core.Common.Interfaces;
 using Wavefront.SDK.CSharp.Common;
 using Wavefront.SDK.CSharp.Common.Application;
 
@@ -11,17 +12,19 @@ namespace Tap.Dotnet.Core.Api.Weather.Controllers
     [Route("forecast/random")]
     public class RandomForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
+        private readonly IApiHelper apiHelper;
+        private readonly ILogger<RandomForecastController> logger;
+
+        public RandomForecastController(IApiHelper apiHelper, ILogger<RandomForecastController> logger)
         {
+            this.apiHelper = apiHelper;
+            this.logger = logger;
+        }
+
+        private static readonly string[] Summaries = new[]
+{
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
-
-        private readonly ILogger<RandomForecastController> _logger;
-
-        public RandomForecastController(ILogger<RandomForecastController> logger)
-        {
-            _logger = logger;
-        }
 
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()

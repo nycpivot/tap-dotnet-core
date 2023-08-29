@@ -1,3 +1,4 @@
+using Tap.Dotnet.Core.Common;
 using Tap.Dotnet.Core.Web.Application;
 using Tap.Dotnet.Core.Web.Application.Interfaces;
 using Tap.Dotnet.Core.Web.Application.Models;
