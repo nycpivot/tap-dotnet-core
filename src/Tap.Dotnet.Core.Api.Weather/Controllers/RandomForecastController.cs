@@ -67,16 +67,15 @@ namespace Tap.Dotnet.Core.Api.Weather.Controllers
 
             var end = DateTimeUtils.UnixTimeMilliseconds(DateTime.UtcNow);
 
+            var traceHeader = this.Request.Headers["X-TraceId"];
+
             this.apiHelper.WavefrontSender.SendSpan(
-                "GetRandomWeatherForecast",
-                start, end, "tap-dotnet-core-api-weather-env",
-                new Guid("7b3bf470-9456-11e8-9eb6-529269fb1459"),
-                new Guid("0313bafe-9457-11e8-9eb6-529269fb1459"),
+                "GetRandomWeatherForecast", start, end, "RandomForecastController",
+                new Guid(traceHeader[0]), Guid.NewGuid(),
+                ImmutableList.Create(new Guid("82dd7b10-3d65-4a03-9226-24ff106b5041")), null,
                 ImmutableList.Create(
-                    new Guid("2f64e538-9457-11e8-9eb6-529269fb1459")), null,
-                ImmutableList.Create(
-                    new KeyValuePair<string, string>("application", "tap-dotnet-core-api-weather-env"),
-                    new KeyValuePair<string, string>("service", "random-forecast-controller"),
+                    new KeyValuePair<string, string>("application", "tap-dotnet-core-api-weather-claim"),
+                    new KeyValuePair<string, string>("service", "RandomForecastController"),
                     new KeyValuePair<string, string>("http.method", "GET")), null);
 
             return forecast;

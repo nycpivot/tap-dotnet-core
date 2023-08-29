@@ -1,4 +1,5 @@
 using Tap.Dotnet.Core.Common;
+using Tap.Dotnet.Core.Common.Interfaces;
 using Tap.Dotnet.Core.Web.Application;
 using Tap.Dotnet.Core.Web.Application.Interfaces;
 using Tap.Dotnet.Core.Web.Application.Models;
@@ -16,7 +17,7 @@ var wfSender = new WavefrontDirectIngestionClient.Builder(wavefrontUrl, wavefron
 
 var apiHelper = new ApiHelper()
 {
-    WeatherApi = weatherApi,
+    WeatherApiUrl = weatherApi,
     WavefrontSender = wfSender
 };
 

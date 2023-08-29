@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Immutable;
 using Tap.Dotnet.Core.Common.Interfaces;
 using Tap.Dotnet.Core.Web.Application.Interfaces;
-using Tap.Dotnet.Core.Web.Application.Models;
+using Tap.Dotnet.Core.Web.Mvc.Models;
 using Wavefront.SDK.CSharp.Common;
 
 namespace Tap.Dotnet.Core.Web.Mvc.Controllers

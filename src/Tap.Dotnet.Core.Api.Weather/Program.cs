@@ -1,6 +1,22 @@
+using Tap.Dotnet.Core.Common.Interfaces;
+using Tap.Dotnet.Core.Common;
+using Wavefront.SDK.CSharp.DirectIngestion;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+var serviceBindings = Environment.GetEnvironmentVariable("SERVICE_BINDING_ROOT") ?? String.Empty;
+
+var wavefrontUrl = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "wavefront-url", "host"));
+var wavefrontToken = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "wavefront-token", "token"));
+
+var wfSender = new WavefrontDirectIngestionClient.Builder(wavefrontUrl, wavefrontToken).Build();
+
+var apiHelper = new ApiHelper()
+{
+    WavefrontSender = wfSender
+};
+
+builder.Services.AddSingleton<IApiHelper>(apiHelper);
 
 builder.Services.AddControllers();
 
