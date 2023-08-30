@@ -1,9 +1,10 @@
+using Prometheus;
+using Tap.Dotnet.Core.Api.Weather;
 using Tap.Dotnet.Core.Api.Weather.Interfaces;
-using Tap.Dotnet.Core.Api.Weather.Models;
 using Wavefront.SDK.CSharp.DirectIngestion;
 
-var builder = WebApplication.CreateBuilder(args);
 
+var builder = WebApplication.CreateBuilder(args);
 
 // get location of claims
 var serviceBindings = Environment.GetEnvironmentVariable("SERVICE_BINDING_ROOT") ?? String.Empty;
@@ -12,18 +13,18 @@ var serviceBindings = Environment.GetEnvironmentVariable("SERVICE_BINDING_ROOT")
 var weatherBitUrl = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "weather-bit", "host"));
 var weatherBitKey = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "weather-bit", "key"));
 
-// get wavefront credentials
-var wavefrontUrl = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "wavefront-api", "host"));
-var wavefrontToken = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "wavefront-api", "token"));
+//// get wavefront credentials
+//var wavefrontUrl = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "wavefront-api", "host"));
+//var wavefrontToken = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "wavefront-api", "token"));
 
-// create wavefront direct ingestion client
-var wfClient = new WavefrontDirectIngestionClient.Builder(wavefrontUrl, wavefrontToken).Build();
+//// create wavefront direct ingestion client
+//var wfClient = new WavefrontDirectIngestionClient.Builder(wavefrontUrl, wavefrontToken).Build();
 
 var apiHelper = new ApiHelper()
 {
     WeatherBitUrl = weatherBitUrl,
     WeatherBitKey = weatherBitKey,
-    WavefrontDirectIngestionClient = wfClient
+    //WavefrontDirectIngestionClient = wfClient
 };
 
 // Add services to the container.
@@ -36,7 +37,9 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 
 app.UseAuthorization();
+app.UseHttpMetrics(); // prometheus
 
 app.MapControllers();
+app.MapMetrics(); // prometheus
 
 app.Run();

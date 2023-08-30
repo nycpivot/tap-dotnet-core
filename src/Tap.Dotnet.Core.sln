@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tap.Dotnet.Core.Web.Applica
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tap.Dotnet.Core.Domain", "Tap.Dotnet.Core.Domain\Tap.Dotnet.Core.Domain.csproj", "{F2639F25-F7E7-4954-B4F1-85E85BFE63C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tap.Dotnet.Core.Common", "Tap.Dotnet.Core.Common\Tap.Dotnet.Core.Common.csproj", "{C0D9DF22-6619-47E3-B651-7329BD6AE6AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{F2639F25-F7E7-4954-B4F1-85E85BFE63C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2639F25-F7E7-4954-B4F1-85E85BFE63C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2639F25-F7E7-4954-B4F1-85E85BFE63C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0D9DF22-6619-47E3-B651-7329BD6AE6AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0D9DF22-6619-47E3-B651-7329BD6AE6AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0D9DF22-6619-47E3-B651-7329BD6AE6AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0D9DF22-6619-47E3-B651-7329BD6AE6AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

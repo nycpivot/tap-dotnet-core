@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Tap.Dotnet.Core.Common\Tap.Dotnet.Core.Common.csproj" />
     <ProjectReference Include="..\Tap.Dotnet.Core.Web.Application\Tap.Dotnet.Core.Web.Application.csproj" />
   </ItemGroup>
 

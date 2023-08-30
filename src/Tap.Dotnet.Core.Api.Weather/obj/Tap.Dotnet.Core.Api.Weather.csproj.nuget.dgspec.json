@@ -48,6 +48,10 @@
             "Wavefront.AspNetCore.SDK.CSharp": {
               "target": "Package",
               "version": "[1.4.0, )"
+            },
+            "prometheus-net.AspNetCore": {
+              "target": "Package",
+              "version": "[8.0.1, )"
             }
           },
           "imports": [

@@ -37,23 +37,23 @@ namespace Tap.Dotnet.Core.Web.Mvc.Controllers
                 ModelState.AddModelError("Environment", ex.StackTrace ?? ex.Message);
             }
 
-            try
-            {
-                var forecasts = this.weatherApplication.GetWeatherForecastsByEnvironment("");
+            //try
+            //{
+            //    var forecasts = this.weatherApplication.GetWeatherForecastsByEnvironment("");
 
-                if (forecasts != null && forecasts.Count == 5)
-                {
-                    ViewBag.Forecast1 = forecasts[0];
-                    ViewBag.Forecast2 = forecasts[1];
-                    ViewBag.Forecast3 = forecasts[2];
-                    ViewBag.Forecast4 = forecasts[3];
-                    ViewBag.Forecast5 = forecasts[4];
-                }
-            }
-            catch (Exception ex)
-            {
-                ModelState.AddModelError("Index", ex.StackTrace ?? ex.Message);
-            }
+            //    if (forecasts != null && forecasts.Count == 5)
+            //    {
+            //        ViewBag.Forecast1 = forecasts[0];
+            //        ViewBag.Forecast2 = forecasts[1];
+            //        ViewBag.Forecast3 = forecasts[2];
+            //        ViewBag.Forecast4 = forecasts[3];
+            //        ViewBag.Forecast5 = forecasts[4];
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    ModelState.AddModelError("Index", ex.StackTrace ?? ex.Message);
+            //}
 
             return View();
 
