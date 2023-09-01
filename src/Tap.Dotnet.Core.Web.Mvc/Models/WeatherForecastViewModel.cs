@@ -1,6 +1,6 @@
 ﻿namespace Tap.Dotnet.Core.Web.Mvc.Models
 {
-    public class WeatherForecast
+    public class WeatherForecastViewModel
     {
         public DateTime Date { get; set; }
 

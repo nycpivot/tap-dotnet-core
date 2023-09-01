@@ -16,44 +16,59 @@ namespace Tap.Dotnet.Core.Web.Application
             this.apiHelper = apiHelper;
         }
 
-        public IList<WeatherForecastViewModel> GetRandomForecastsByEnvironment(Guid traceId)
+        public string GetDefaultZipCode()
         {
-            var forecasts = new List<WeatherForecastViewModel>();
+            return "10001";
+        }
 
-            this.apiHelper.WavefrontSender.SendSpan(
-                "GetRandomForecastsByEnvironment", 0, 0, "WeatherApplication", traceId, Guid.NewGuid(),
-                ImmutableList.Create(new Guid("82dd7b10-3d65-4a03-9226-24ff106b5041")), null,
-                ImmutableList.Create(
-                    new KeyValuePair<string, string>("application", "tap-dotnet-core-web-mvc-claim"),
-                    new KeyValuePair<string, string>("service", "WeatherApplication"),
-                    new KeyValuePair<string, string>("http.method", "GET")), null);
+        public IList<WeatherForecastViewModel> GetForecast(string zipCode)
+        {
+            var forecast = new List<WeatherForecastViewModel>();
 
-            using (var handler = new HttpClientHandler())
+            try
             {
-                handler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
+                var traceId = Guid.NewGuid();
+                var spanId = Guid.NewGuid();
+
+                this.apiHelper.WavefrontSender.SendSpan(
+                    "Get", 0, 1, "ClaimController", traceId, spanId,
+                    ImmutableList.Create(new Guid("82dd7b10-3d65-4a03-9226-24ff106b5041")), null,
+                    ImmutableList.Create(
+                        new KeyValuePair<string, string>("application", "tap-dotnet-core-web-mvc-claim"),
+                        new KeyValuePair<string, string>("service", "ClaimController"),
+                        new KeyValuePair<string, string>("http.method", "GET")), null);
+
+                using (var handler = new HttpClientHandler())
                 {
-                    return true;
-                };
-
-                using (var httpClient = new HttpClient(handler))
-                {
-                    httpClient.BaseAddress = new Uri(this.apiHelper.WeatherApiUrl);
-
-                    httpClient.DefaultRequestHeaders.Add("X-TraceId", traceId.ToString());
-
-                    //var response = await httpClient.GetAsync("weatherforecast");
-                    //response.EnsureSuccessStatusCode();
-
-                    var response = httpClient.GetAsync("forecast/random").Result;
-                    if (response.StatusCode == HttpStatusCode.OK)
+                    handler.ServerCertificateCustomValidationCallback = (message, cert, chain, sslPolicyErrors) =>
                     {
-                        var content = response.Content.ReadAsStringAsync().Result;
-                        forecasts = JsonConvert.DeserializeObject<List<WeatherForecastViewModel>>(content);
+                        return true;
+                    };
+
+                    using (var httpClient = new HttpClient(handler))
+                    {
+                        httpClient.BaseAddress = new Uri(this.apiHelper.WeatherApiUrl);
+
+                        httpClient.DefaultRequestHeaders.Add("X-TraceId", traceId.ToString());
+
+                        //var response = await httpClient.GetAsync("weatherforecast");
+                        //response.EnsureSuccessStatusCode();
+
+                        var response = httpClient.GetAsync("forecast").Result;
+                        if (response.StatusCode == HttpStatusCode.OK)
+                        {
+                            var content = response.Content.ReadAsStringAsync().Result;
+                            forecast = JsonConvert.DeserializeObject<List<WeatherForecastViewModel>>(content);
+                        }
                     }
                 }
             }
+            catch (Exception ex)
+            {
 
-            return forecasts;
+            }
+
+            return forecast;
         }
     }
 }

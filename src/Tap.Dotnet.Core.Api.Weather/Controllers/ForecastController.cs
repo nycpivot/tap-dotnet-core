@@ -9,22 +9,17 @@ using Wavefront.SDK.CSharp.Common.Application;
 namespace Tap.Dotnet.Core.Api.Weather.Controllers
 {
     [ApiController]
-    [Route("forecast/random")]
-    public class RandomForecastController : ControllerBase
+    [Route("[controller]")]
+    public class ForecastController : ControllerBase
     {
         private readonly IApiHelper apiHelper;
-        private readonly ILogger<RandomForecastController> logger;
+        private readonly ILogger<ForecastController> logger;
 
-        public RandomForecastController(IApiHelper apiHelper, ILogger<RandomForecastController> logger)
+        public ForecastController(IApiHelper apiHelper, ILogger<ForecastController> logger)
         {
             this.apiHelper = apiHelper;
             this.logger = logger;
         }
-
-        private static readonly string[] Summaries = new[]
-{
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
 
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
@@ -35,7 +30,7 @@ namespace Tap.Dotnet.Core.Api.Weather.Controllers
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+                //Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
 
