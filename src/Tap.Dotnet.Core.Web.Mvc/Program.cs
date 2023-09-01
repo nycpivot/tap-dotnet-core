@@ -12,6 +12,7 @@ var weatherApi = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "weath
 var wavefrontUrl = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "wavefront-api", "host"));
 var wavefrontToken = System.IO.File.ReadAllText(Path.Combine(serviceBindings, "wavefront-api", "token"));
 
+
 var wfSender = new WavefrontDirectIngestionClient.Builder(wavefrontUrl, wavefrontToken).Build();
 
 var apiHelper = new ApiHelper()

@@ -1,7 +1,6 @@
 using Prometheus;
 using Tap.Dotnet.Core.Api.Weather;
 using Tap.Dotnet.Core.Api.Weather.Interfaces;
-using Wavefront.SDK.CSharp.DirectIngestion;
 
 
 var builder = WebApplication.CreateBuilder(args);
