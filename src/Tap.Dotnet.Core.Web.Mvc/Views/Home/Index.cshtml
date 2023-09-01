@@ -1,4 +1,4 @@
-﻿@model HomeViewModel
+﻿@model Tap.Dotnet.Core.Web.Application.Models.HomeViewModel
 
 <p>@Html.ValidationMessage("Index")</p>
 
@@ -15,25 +15,25 @@
             <h6 class="display-6">Weather Forecast</h6>
             <table style="width:100%;">
                 <tr>
-                    <td>@ViewBag.Forecast1.Date.DayOfWeek</td>
-                    <td>@ViewBag.Forecast2.Date.DayOfWeek</td>
+                    <td>@Model.WeatherForecast[0].Date.DayOfWeek</td>
+@*                    <td>@ViewBag.Forecast2.Date.DayOfWeek</td>
                     <td>@ViewBag.Forecast3.Date.DayOfWeek</td>
                     <td>@ViewBag.Forecast4.Date.DayOfWeek</td>
-                    <td>@ViewBag.Forecast5.Date.DayOfWeek</td>
+                    <td>@ViewBag.Forecast5.Date.DayOfWeek</td>*@
                 </tr>
                 <tr>
-                    <td>@ViewBag.Forecast1.TemperatureF℉</td>
-                    <td>@ViewBag.Forecast2.TemperatureF℉</td>
+                    <td>@Model.WeatherForecast[0].TemperatureF℉</td>
+@*                    <td>@ViewBag.Forecast2.TemperatureF℉</td>
                     <td>@ViewBag.Forecast3.TemperatureF℉</td>
                     <td>@ViewBag.Forecast4.TemperatureF℉</td>
-                    <td>@ViewBag.Forecast5.TemperatureF℉</td>
+                    <td>@ViewBag.Forecast5.TemperatureF℉</td>*@
                 </tr>
                 <tr>
-                    <td>@ViewBag.Forecast1.Summary</td>
-                    <td>@ViewBag.Forecast2.Summary</td>
+                    <td>@Model.WeatherForecast[0].Summary</td>
+@*                    <td>@ViewBag.Forecast2.Summary</td>
                     <td>@ViewBag.Forecast3.Summary</td>
                     <td>@ViewBag.Forecast4.Summary</td>
-                    <td>@ViewBag.Forecast5.Summary</td>
+                    <td>@ViewBag.Forecast5.Summary</td>*@
                 </tr>
             </table>
         </div>

@@ -4,7 +4,7 @@ namespace Tap.Dotnet.Core.Web.Application.Interfaces
 {
     public interface IWeatherApplication
     {
-        string GetDefaultZipCode();
+        HomeViewModel GetDefaultCriteria();
         IList<WeatherForecastViewModel> GetForecast(string zipCode);
     }
 }

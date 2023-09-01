@@ -6,8 +6,7 @@ namespace Tap.Dotnet.Core.Common
 {
     public class ApiHelper : IApiHelper
     {
-        private string weatherApiUrl = String.Empty;
-        private IWavefrontSender wavefrontSender = null;
+        public string DefaultZipCode { get; set; } = String.Empty;
 
         public string WeatherApiUrl { get; set; } = String.Empty;
 

@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using Tap.Dotnet.Core.Common.Interfaces;
 using Tap.Dotnet.Core.Web.Application.Interfaces;
+using Tap.Dotnet.Core.Web.Application.Models;
 using Tap.Dotnet.Core.Web.Mvc.Models;
 
 namespace Tap.Dotnet.Core.Web.Mvc.Controllers
@@ -23,18 +24,19 @@ namespace Tap.Dotnet.Core.Web.Mvc.Controllers
 
         public IActionResult Index()
         {
+            var homeViewModel = this.weatherApplication.GetDefaultCriteria();
+
             try
             {
-                var zipCode = this.weatherApplication.GetDefaultZipCode();
-                var forecasts = this.weatherApplication.GetForecast(zipCode);
+                var forecast = this.weatherApplication.GetForecast(homeViewModel.ZipCode);
 
-                if (forecasts != null && forecasts.Count == 5)
+                if (forecast != null && forecast.Count == 5)
                 {
-                    ViewBag.Forecast1 = forecasts[0];
-                    ViewBag.Forecast2 = forecasts[1];
-                    ViewBag.Forecast3 = forecasts[2];
-                    ViewBag.Forecast4 = forecasts[3];
-                    ViewBag.Forecast5 = forecasts[4];
+                    homeViewModel.WeatherForecast.Add(forecast[0]);
+                    homeViewModel.WeatherForecast.Add(forecast[1]);
+                    homeViewModel.WeatherForecast.Add(forecast[2]);
+                    homeViewModel.WeatherForecast.Add(forecast[3]);
+                    homeViewModel.WeatherForecast.Add(forecast[4]);
                 }
             }
             catch (Exception ex)
@@ -42,7 +44,7 @@ namespace Tap.Dotnet.Core.Web.Mvc.Controllers
                 ModelState.AddModelError("Index", ex.StackTrace ?? ex.Message);
             }
 
-            return View();
+            return View(homeViewModel);
         }
 
         [HttpPost]

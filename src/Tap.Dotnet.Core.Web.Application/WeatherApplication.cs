@@ -16,9 +16,9 @@ namespace Tap.Dotnet.Core.Web.Application
             this.apiHelper = apiHelper;
         }
 
-        public string GetDefaultZipCode()
+        public HomeViewModel GetDefaultCriteria()
         {
-            return "10001";
+            return new HomeViewModel() { ZipCode = this.apiHelper.DefaultZipCode };
         }
 
         public IList<WeatherForecastViewModel> GetForecast(string zipCode)
