@@ -99,3 +99,5 @@ C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Web.Mvc\bin\Debug\
 C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Web.Mvc\bin\Debug\net6.0\Tap.Dotnet.Core.Web.Application.dll
 C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Web.Mvc\bin\Debug\net6.0\Tap.Dotnet.Core.Common.pdb
 C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Web.Mvc\bin\Debug\net6.0\Tap.Dotnet.Core.Web.Application.pdb
+C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Web.Mvc\bin\Debug\net6.0\Pipelines.Sockets.Unofficial.dll
+C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Web.Mvc\bin\Debug\net6.0\StackExchange.Redis.dll

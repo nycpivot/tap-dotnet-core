@@ -1,4 +1,5 @@
-﻿using Tap.Dotnet.Core.Common.Interfaces;
+﻿using StackExchange.Redis;
+using Tap.Dotnet.Core.Common.Interfaces;
 using Wavefront.SDK.CSharp.Common;
 
 namespace Tap.Dotnet.Core.Common
@@ -8,16 +9,10 @@ namespace Tap.Dotnet.Core.Common
         private string weatherApiUrl = String.Empty;
         private IWavefrontSender wavefrontSender = null;
 
-        public string WeatherApiUrl
-        {
-            get { return weatherApiUrl; }
-            set { weatherApiUrl = value; }
-        }
+        public string WeatherApiUrl { get; set; } = String.Empty;
 
-        public IWavefrontSender WavefrontSender
-        {
-            get { return wavefrontSender; }
-            set { wavefrontSender = value; }
-        }
+        public IWavefrontSender WavefrontSender { get; set;} = null;
+
+        public IDatabase CacheDb { get; set; } = null;
     }
 }

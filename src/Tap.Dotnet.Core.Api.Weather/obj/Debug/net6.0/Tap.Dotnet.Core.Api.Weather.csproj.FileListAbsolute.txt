@@ -61,3 +61,5 @@ C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Api.Weather\bin\De
 C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Api.Weather\bin\Debug\net6.0\Tap.Dotnet.Core.Common.dll
 C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Api.Weather\bin\Debug\net6.0\Tap.Dotnet.Core.Common.pdb
 C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Api.Weather\obj\Debug\net6.0\Tap.Dotnet.Core.Api.Weather.csproj.CopyComplete
+C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Api.Weather\bin\Debug\net6.0\Pipelines.Sockets.Unofficial.dll
+C:\Users\mjames\Documents\tap-dotnet-core\src\Tap.Dotnet.Core.Api.Weather\bin\Debug\net6.0\StackExchange.Redis.dll
